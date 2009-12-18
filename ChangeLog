@@ -1,5 +1,11 @@
 2009-12-17  Daniel Macks  <dmacks@netspace.org>
 
+	* ChangeLog.base-files: import ChangeLog from "dpkg-wrappers"
+	branch of base-files module
+	* inject.pl, install.sh: ...and install it along side ChangeLog
+
+2009-12-17  Daniel Macks  <dmacks@netspace.org>
+
 	* .cvsignore: clean out old-module stuff
 
 2009-12-17  Daniel Macks  <dmacks@netspace.org>

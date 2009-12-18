@@ -37,7 +37,7 @@ my $package = "dpkg-base-files";
 ### check if we're unharmed, and specify files for tarball
 
 my $packagefiles = join ' ', qw(
-    COPYING ChangeLog install.sh setup.sh
+    COPYING ChangeLog ChangeLog.base-files install.sh setup.sh
     preinst.in postinst.in prerm.in postrm.in
     );
 
