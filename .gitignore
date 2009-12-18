@@ -26,10 +26,6 @@ _$*
 *.ln
 core
 # CVS default ignores end
-editor
-init.csh
-init.sh
-pager
 preinst
 postinst
 prerm
