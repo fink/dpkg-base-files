@@ -1,0 +1,21 @@
+Package: dpkg-base-files
+Version: @VERSION@
+Revision: @REVISION@
+Source: @SOURCE@
+Essential: yes
+Source-MD5: @MD5@
+CompileScript: ./setup.sh %p
+InstallScript: ./install.sh %i
+#
+PostInstScript: <<
+<<
+#
+Description: Support scripts for dpkg
+DescDetail: <<
+The dpkg-base-files package contains files that dpkg uses, including
+
+ * global-deb-scripts, which are run during package
+   installation/removal actions
+<<
+License: GPL
+Maintainer: Fink Core Group <fink-core@lists.sourceforge.net>

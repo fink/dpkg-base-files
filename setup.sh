@@ -29,11 +29,6 @@ fi
 
 basepath=$1
 
-echo "Creating scripts for $basepath..."
-for file in init.sh init.csh editor pager ; do
-  sed "s|BASEPATH|$basepath|g" <$file.in >$file
-done
-
 echo "Creating dpkg script wrapper scripts..."
 for file in preinst postinst prerm postrm ; do
     sed "s|@PREFIX@|$basepath|g" <$file.in >$file

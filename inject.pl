@@ -32,21 +32,12 @@ require Fink::Bootstrap;
 
 ### which package are we injecting?
 
-my $package = "base-files";
+my $package = "dpkg-base-files";
 
 ### check if we're unharmed, and specify files for tarball
 
-my ($file);
-foreach $file (qw(dir-base init.sh.in setup.sh)) {
-  if (not -e $file) {
-    print "ERROR: Package incomplete, '$file' is missing.\n";
-    exit 1;
-  }
-}
-
 my $packagefiles = join ' ', qw(
-    COPYING init.csh.in init.sh.in dir-base
-    pager.in editor.in install.sh setup.sh
+    install.sh setup.sh
     preinst.in postinst.in prerm.in postrm.in
     );
 

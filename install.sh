@@ -37,12 +37,7 @@ echo "Creating directories..."
 mkdir -p $basepath
 chmod 755 $basepath
 
-for dir in etc etc/profile.d bin sbin lib include \
-	   share share/info share/man share/doc \
-	   share/base-files lib/fink lib/fink/dpkg-wrappers \
-	   lib/perl5 lib/perl5/darwin lib/perl5/auto lib/perl5/darwin/auto \
-	   var var/run var/spool var/log src \
-	   share/doc/base-files ; do
+for dir in lib/fink/dpkg-base-files share/doc/dpkg-base-files ; do
   mkdir $basepath/$dir
   chmod 755 $basepath/$dir
 done
@@ -50,20 +45,10 @@ done
 
 echo "Copying files..."
 
-install -c -p -m 644 init.sh $basepath/bin/
-install -c -p -m 644 init.csh $basepath/bin/
-# generate a dummy file to avoid problems with zsh
-touch $basepath/etc/profile.d/dummy.sh
-chmod 644 $basepath/etc/profile.d/dummy.sh
-
-install -c -p -m 755 pager $basepath/bin/
-install -c -p -m 755 editor $basepath/bin/
-
-install -c -p -m 644 dir-base $basepath/share/base-files/
-install -c -p -m 644 COPYING $basepath/share/doc/base-files/
+install -c -p -m 644 COPYING $basepath/share/doc/dpkg-base-files/
 
 for wrapper in preinst postinst prerm postrm ; do
-  install -c -p -m 755 $wrapper $basepath/lib/fink/dpkg-wrappers/
+  install -c -p -m 755 $wrapper $basepath/lib/fink/dpkg-base-files/
 done
 
 
