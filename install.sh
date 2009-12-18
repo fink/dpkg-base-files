@@ -38,7 +38,7 @@ mkdir -p $basepath
 chmod 755 $basepath
 
 for dir in lib/fink/dpkg-base-files share/doc/dpkg-base-files ; do
-  mkdir $basepath/$dir
+  mkdir -p $basepath/$dir
   chmod 755 $basepath/$dir
 done
 

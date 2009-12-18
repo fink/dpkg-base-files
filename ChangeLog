@@ -1,5 +1,9 @@
 2009-12-17  Daniel Macks  <dmacks@netspace.org>
 
+	* install.sh: create whole directory hierarchies
+
+2009-12-17  Daniel Macks  <dmacks@netspace.org>
+
 	* VERSION: restart from 0.0
 	* base-files.info.in, dpkg-base-files.info.in: renamed to match
 	new module-name
