@@ -1,5 +1,9 @@
 2009-12-17  Daniel Macks  <dmacks@netspace.org>
 
+	* inject.pl, install.sh: fix handling of doc files
+
+2009-12-17  Daniel Macks  <dmacks@netspace.org>
+
 	* install.sh: create whole directory hierarchies
 
 2009-12-17  Daniel Macks  <dmacks@netspace.org>

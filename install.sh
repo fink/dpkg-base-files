@@ -45,7 +45,7 @@ done
 
 echo "Copying files..."
 
-install -c -p -m 644 COPYING $basepath/share/doc/dpkg-base-files/
+install -c -p -m 644 COPYING ChangeLog $basepath/share/doc/dpkg-base-files/
 
 for wrapper in preinst postinst prerm postrm ; do
   install -c -p -m 755 $wrapper $basepath/lib/fink/dpkg-base-files/
