@@ -1,0 +1,10 @@
+#!/bin/sh -e
+
+# called from dpkg with:
+#   $1    full path to .deb postinst script (blank if there is none in .deb)
+#   $2... parameter list normally passed as $1... per debian documentation
+# this script *must* run $1 at some point
+
+. @PREFIX@/bin/init.sh
+
+[ -z $1 ] || "$@"

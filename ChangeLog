@@ -1,0 +1,6 @@
+2009-12-17  Daniel Macks  <dmacks@netspace.org>
+
+	* COPYING, README.buildsystem, VERSION, base-files.info.in,
+	inject.pl, install.sh, preinst.in, postinst.in, prerm.in,
+	postrm.in, .cvsignore: import from "dpkg-wrappers" branch of
+	base-files module
