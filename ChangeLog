@@ -1,3 +1,7 @@
+2009-12-18  Daniel Macks  <dmacks@netspace.org>
+
+	* dpkg-base-files.info.in: require dpkg that will use the scripts
+
 2009-12-17  Daniel Macks  <dmacks@netspace.org>
 
 	* ChangeLog.base-files: import ChangeLog from "dpkg-wrappers"

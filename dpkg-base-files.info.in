@@ -1,6 +1,7 @@
 Package: dpkg-base-files
 Version: @VERSION@
 Revision: @REVISION@
+Depends: dpkg (>= 1.10.21-1228.2)
 Source: @SOURCE@
 Essential: yes
 Source-MD5: @MD5@
@@ -16,6 +17,12 @@ The dpkg-base-files package contains files that dpkg uses, including
 
  * global-deb-scripts, which are run during package
    installation/removal actions
+<<
+DescPackaging: <<
+	Dependency on "dpkg that runs these scripts" needed so that
+	other packages can Depends on %N and know that the scripts
+	will be run. This dpkg is in fink CVS:
+	experimental/dmacks/finkinfo/dpkg.{info,patch}
 <<
 License: GPL
 Maintainer: Fink Core Group <fink-core@lists.sourceforge.net>
