@@ -1,5 +1,9 @@
 2009-12-19  Daniel Macks  <dmacks@netspace.org>
 
+	* postinst.in: figure out the being-installed list of .la
+
+2009-12-19  Daniel Macks  <dmacks@netspace.org>
+
 	* dpkg-base-files.info.in, preinst.in, postinst.in, prerm.in,
 	postrm.in: dpkg now passes %n as first CLI parameter
 

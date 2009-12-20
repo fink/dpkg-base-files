@@ -10,15 +10,13 @@
 . @PREFIX@/bin/init.sh
 
 echo "postinst for package '$1'"
+pkg=$1
 shift;
-    for x in $@; do
-	echo "  '$x'"
-    done
 
 if [ "$2" = "configure" ]; then
-    echo "phase 'configure': would clean up .la files being installed"
-    for x in $@; do
-	echo "  '$x'"
+    echo "configuring $pkg: would clean up .la files being installed:"
+    for lafile in `grep '\.la$' "/sw/var/lib/dpkg/info/$pkg.list"`; do
+	echo "    $lafile"
     done
 fi
 
