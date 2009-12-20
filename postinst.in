@@ -1,14 +1,20 @@
 #!/bin/sh -e
 
 # called from dpkg with:
-#   $1    full path to .deb postinst script (blank if there is none in .deb)
-#   $2... parameter list normally passed as $1... per debian documentation
+#   $1    package name
+#   $2    full path to .deb postinst script (blank if there is none in .deb)
+#   $3... parameter list normally passed as $1... per debian documentation
 #         See: http://www.debian.org/doc/debian-policy/ch-maintainerscripts.html
-# NB: this script *must* run $1 with $2... parameters at some point
+# NB: this script *must* run $2 with $3... parameters at some point
 
 . @PREFIX@/bin/init.sh
 
-echo "postinst for '$1'"
+echo "postinst for package '$1'"
+shift;
+    for x in $@; do
+	echo "  '$x'"
+    done
+
 if [ "$2" = "configure" ]; then
     echo "phase 'configure': would clean up .la files being installed"
     for x in $@; do

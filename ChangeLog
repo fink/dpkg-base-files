@@ -1,5 +1,10 @@
 2009-12-19  Daniel Macks  <dmacks@netspace.org>
 
+	* dpkg-base-files.info.in, preinst.in, postinst.in, prerm.in,
+	postrm.in: dpkg now passes %n as first CLI parameter
+
+2009-12-19  Daniel Macks  <dmacks@netspace.org>
+
 	* dpkg-base-files.info.in, postinst.in: debugging output to see
 	how we are called
 	* preinst.in, postinst.in, prerm.in, postrm.in: link Debian docs
