@@ -3,7 +3,8 @@
 # called from dpkg with:
 #   $1    full path to .deb postrm script (blank if there is none in .deb)
 #   $2... parameter list normally passed as $1... per debian documentation
-# this script *must* run $1 at some point
+#         See: http://www.debian.org/doc/debian-policy/ch-maintainerscripts.html
+# NB: this script *must* run $1 with $2... parameters at some point
 
 . @PREFIX@/bin/init.sh
 

@@ -9,6 +9,9 @@ CompileScript: ./setup.sh %p
 InstallScript: ./install.sh %i
 #
 PostInstScript: <<
+	if [ "$2" = "configure" ]; then
+		echo "Would clean up all installed .la files"
+	fi
 <<
 #
 Description: Support scripts for dpkg

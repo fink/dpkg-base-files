@@ -3,8 +3,17 @@
 # called from dpkg with:
 #   $1    full path to .deb postinst script (blank if there is none in .deb)
 #   $2... parameter list normally passed as $1... per debian documentation
-# this script *must* run $1 at some point
+#         See: http://www.debian.org/doc/debian-policy/ch-maintainerscripts.html
+# NB: this script *must* run $1 with $2... parameters at some point
 
 . @PREFIX@/bin/init.sh
+
+echo "postinst for '$1'"
+if [ "$2" = "configure" ]; then
+    echo "phase 'configure': would clean up .la files being installed"
+    for x in $@; do
+	echo "  '$x'"
+    done
+fi
 
 [ -z $1 ] || "$@"
