@@ -1,5 +1,9 @@
 2009-12-21  Daniel Macks  <dmacks@netspace.org>
 
+	* postinst.in: fixed file-tests (thanks pogma)
+
+2009-12-21  Daniel Macks  <dmacks@netspace.org>
+
 	* dpkg-base-files.info.in, postinst.in: dry-run of .la cleaning
 
 2009-12-19  Daniel Macks  <dmacks@netspace.org>

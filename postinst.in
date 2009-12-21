@@ -16,8 +16,10 @@ shift;
 if [ "$2" = "configure" ]; then
     echo "Cleaning up .la files being installed:"
     for lafile in `grep '\.la$' "/sw/var/lib/dpkg/info/$pkg.list"`; do
-	echo '  [ -l "'$lafile'" ] || [ -d "'$lafile'" ] || perl -pi -e "s/^(dependency_libs)=.*/\1='"''"'/" "'$lafile'" || true'
-#	[ -l "$lafile" ] || [ -d "$lafile" ] || perl -pi -e "s/^(dependency_libs)=.*/\1=''/" "$lafile" || true
+	if [ -f "$lafile" ] && [ ! -h "$lafile" ]; then
+	    echo '  perl -pi -e "s/^(dependency_libs)=.*/\1='"''"'/" "'$lafile'" || true'
+#	    perl -pi -e "s/^(dependency_libs)=.*/\1=''/" "$lafile" || true
+	fi
     done
     echo "dry-run-only debug"
 fi
