@@ -1,27 +1,38 @@
 #!/bin/sh -e
 
 # called from dpkg with:
-#   $1    package name
-#   $2    full path to .deb postinst script (blank if there is none in .deb)
-#   $3... parameter list normally passed as $1... per debian documentation
+#   $1    full path to .deb postinst script (blank if there is none in .deb)
+#   $2... parameter list normally passed as $1... per debian documentation
 #         See: http://www.debian.org/doc/debian-policy/ch-maintainerscripts.html
-# NB: this script *must* run $2 with $3... parameters at some point
+# NB: this script *must* run $1 with $2... parameters at some point
+#
+#   $FINK_PACKAGE_NAME  package name
+
+echo "postinst for package '$FINK_PACKAGE_NAME'"
+if [ -z "$FINK_PACKAGE_NAME" ]; then
+    echo "uh oh...$0 called with no \$FINK_PACKAGE_NAME!"
+fi
 
 . @PREFIX@/bin/init.sh
 
-echo "postinst for package '$1'"
-pkg=$1
-shift;
-
 if [ "$2" = "configure" ]; then
     echo "Cleaning up .la files being installed:"
-    for lafile in `grep '\.la$' "/sw/var/lib/dpkg/info/$pkg.list"`; do
-	if [ -f "$lafile" ] && [ ! -h "$lafile" ]; then
-	    echo '  perl -pi -e "s/^(dependency_libs)=.*/\1='"''"'/" "'$lafile'" || true'
-#	    perl -pi -e "s/^(dependency_libs)=.*/\1=''/" "$lafile" || true
+    if [ -z "$FINK_PACKAGE_NAME" ]; then
+	echo "(skipping because cannot determine package-name)"
+    else
+	filelist="/sw/var/lib/dpkg/info/$FINK_PACKAGE_NAME.list"
+	if [ ! -f "$filelist" ]; then
+	    echo "(skipping because cannot read $filelist)"
+	else
+	    for lafile in `grep '\.la$' "$filelist"`; do
+		if [ -f "$lafile" ] && [ ! -h "$lafile" ]; then
+		    echo '  perl -pi -e "s/^(dependency_libs)=.*/\1='"''"'/" "'$lafile'" || true'
+#		    perl -pi -e "s/^(dependency_libs)=.*/\1=''/" "$lafile" || true
+		fi
+	    done
 	fi
-    done
+    fi
     echo "dry-run-only debug"
 fi
 
-[ -z $1 ] || "$@"
+[ -z "$1" ] || "$@"

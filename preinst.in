@@ -1,13 +1,17 @@
 #!/bin/sh -e
 
 # called from dpkg with:
-#   $1    package name
-#   $2    full path to .deb preinst script (blank if there is none in .deb)
-#   $3... parameter list normally passed as $1... per debian documentation
+#   $1    full path to .deb preinst script (blank if there is none in .deb)
+#   $2... parameter list normally passed as $1... per debian documentation
 #         See: http://www.debian.org/doc/debian-policy/ch-maintainerscripts.html
-# NB: this script *must* run $2 with $3... parameters at some point
+# NB: this script *must* run $1 with $2... parameters at some point
+#
+#   $FINK_PACKAGE_NAME  package name
+
+if [ -z "$FINK_PACKAGE_NAME" ]; then
+    echo "uh oh...$0 called with no \$FINK_PACKAGE_NAME!"
+fi
 
 . @PREFIX@/bin/init.sh
 
-shift;
-[ -z $1 ] || "$@"
+[ -z "$1" ] || "$@"

@@ -1,3 +1,9 @@
+2009-12-28  Daniel Macks  <dmacks@netspace.org>
+
+	* dpkg-base-files.info.in, preinst.in, postinst.in, prerm.in,
+	postrm.in: dpkg now passes %n as $FINK_PACKAGE_NAME instead of bia
+	CLI parameter
+
 2009-12-21  Daniel Macks  <dmacks@netspace.org>
 
 	* postinst.in: fixed file-tests (thanks pogma)
