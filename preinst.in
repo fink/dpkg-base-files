@@ -14,4 +14,10 @@ fi
 
 . @PREFIX@/bin/init.sh
 
-[ -z "$1" ] || "$@"
+if [ -n "$1" ]; then
+    if [ -x "$1" ]; then
+	"$@"
+    else
+	echo "uh oh...$0 told to run $1 but it doesn't exist!"
+    fi
+fi
