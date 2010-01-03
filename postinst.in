@@ -15,7 +15,7 @@ fi
 . @PREFIX@/bin/init.sh
 
 if [ "$2" = "configure" ]; then
-    echo "Cleaning up .la files being installed:"
+    echo "Cleaning up .la files being installed"
     if [ -z "$FINK_PACKAGE_NAME" ]; then
 	echo "(skipping because cannot determine package-name)"
     else
@@ -26,12 +26,11 @@ if [ "$2" = "configure" ]; then
 	    for lafile in `grep '\.la$' "$filelist"`; do
 		if [ -f "$lafile" ] && [ ! -h "$lafile" ]; then
 		    echo '  perl -pi -e "s/^(dependency_libs)=.*/\1='"''"'/" "'$lafile'" || true'
-#		    perl -pi -e "s/^(dependency_libs)=.*/\1=''/" "$lafile" || true
+		    perl -pi -e "s/^(dependency_libs)=.*/\1=''/" "$lafile" || true
 		fi
 	    done
 	fi
     fi
-    echo "dry-run-only debug"
 fi
 
 if [ -n "$1" ]; then
