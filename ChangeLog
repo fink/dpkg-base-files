@@ -1,5 +1,9 @@
 2010-01-08  Daniel Macks  <dmacks@netspace.org>
 
+	* dpkg-base-files.info.in: cleaner diagnostics for each dir
+
+2010-01-08  Daniel Macks  <dmacks@netspace.org>
+
 	* dpkg-base-files.info.in: only bother to check in places where
 	.la are likely to exist (avoid wasting time in share/, don't mess
 	with %b or %i of other pkgs)
