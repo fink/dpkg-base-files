@@ -11,8 +11,8 @@ InstallScript: ./install.sh %i
 PostInstScript: <<
 	if [ "$1" = "configure" ]; then
 		echo "Cleaning up all installed .la files (this may take a moment)"
-		echo '  find "%p" -name '"'"'*.la'"'"' -and -type f -print0 | xargs -0 perl -pi -e "s/^(dependency_libs)=.*/\1='"''"'/" || true'
-		find "%p" -name '*.la' -and -type f -print0 | xargs -0 perl -pi -e "s/^(dependency_libs)=.*/\1=''/" || true
+		echo '  find "%p/lib" "%p/opt" "%p/Applications" "%p/Library" -name '"'"'*.la'"'"' -and -type f -print0 | xargs -0 perl -pi -e "s/^(dependency_libs)=.*/\1='"''"'/" || true'
+		find "%p/lib" "%p/opt" "%p/Applications" "%p/Library" -name '*.la' -and -type f -print0 | xargs -0 perl -pi -e "s/^(dependency_libs)=.*/\1=''/" || true
 	fi
 <<
 #

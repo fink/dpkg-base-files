@@ -1,3 +1,9 @@
+2010-01-08  Daniel Macks  <dmacks@netspace.org>
+
+	* dpkg-base-files.info.in: only bother to check in places where
+	.la are likely to exist (avoid wasting time in share/, don't mess
+	with %b or %i of other pkgs)
+
 2010-01-03  Daniel Macks  <dmacks@netspace.org>
 
 	* dpkg-base-files.info.in, postinst.in: activate the real .la
