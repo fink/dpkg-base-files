@@ -24,16 +24,17 @@ PostInstScript: <<
 #
 Description: Support scripts for dpkg
 DescDetail: <<
-The dpkg-base-files package contains files that dpkg uses, including
+The dpkg-base-files package contains files that dpkg uses:
 
- * global-deb-scripts, which are run during package
-   installation/removal actions
+ * global-deb-scripts
+
+   * During package installation, clear the dependency_libs entry in
+     all .la files being installed
 <<
 DescPackaging: <<
 	Dependency on "dpkg that runs these scripts" needed so that
 	other packages can Depends on %N and know that the scripts
-	will be run. This dpkg is in fink CVS:
-	experimental/dmacks/finkinfo/dpkg.{info,patch}
+	will be run.
 <<
 License: GPL
 Maintainer: Fink Core Group <fink-core@lists.sourceforge.net>
