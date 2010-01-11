@@ -19,7 +19,7 @@ if [ "$2" = "configure" ]; then
     if [ -z "$FINK_PACKAGE_NAME" ]; then
 	echo "(skipping because cannot determine package-name)"
     else
-	filelist="/sw/var/lib/dpkg/info/$FINK_PACKAGE_NAME.list"
+	filelist="@PREFIX@/var/lib/dpkg/info/$FINK_PACKAGE_NAME.list"
 	if [ ! -f "$filelist" ]; then
 	    echo "(skipping because cannot read $filelist)"
 	else
