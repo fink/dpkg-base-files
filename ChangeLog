@@ -2,6 +2,10 @@
 
 	* VERSION: releasing 0.1
 
+2010-01-11  Daniel Macks  <dmacks@netspace.org>
+
+	* dpkg-base-files.info.in: require released dpkg with our hooks
+
 2010-01-08  Daniel Macks  <dmacks@netspace.org>
 
 	* dpkg-base-files.info.in: cleaner diagnostics for each dir

@@ -1,7 +1,7 @@
 Package: dpkg-base-files
 Version: @VERSION@
 Revision: @REVISION@
-Depends: dpkg (>= 1.10.21-1228.4)
+Depends: dpkg (>= 1.10.21-1229)
 Source: @SOURCE@
 Essential: yes
 Source-MD5: @MD5@
