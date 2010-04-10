@@ -15,17 +15,21 @@ fi
 . @PREFIX@/bin/init.sh
 
 if [ "$2" = "configure" ]; then
-    echo "Cleaning up .la files being installed"
     if [ -z "$FINK_PACKAGE_NAME" ]; then
-	echo "(skipping because cannot determine package-name)"
+	echo "Not cleaning up .la files being installed because cannot determine package-name"
     else
 	filelist="@PREFIX@/var/lib/dpkg/info/$FINK_PACKAGE_NAME.list"
 	if [ ! -f "$filelist" ]; then
-	    echo "(skipping because cannot read $filelist)"
+	    echo "Not cleaning up .la files being installed because cannot read $filelist"
 	else
+	    msg="Clearing dependency_libs of .la files being installed"
 	    for lafile in `grep '\.la$' "$filelist"`; do
 		if [ -f "$lafile" ] && [ ! -h "$lafile" ]; then
-		    echo '  perl -pi -e "s/^(dependency_libs)=.*/\1='"''"'/" "'$lafile'" || true'
+		    if [ -n "$msg" ]; then
+			echo $msg
+			msg=""
+		    fi
+#		    echo '  perl -pi -e "s/^(dependency_libs)=.*/\1='"''"'/" "'$lafile'" || true'
 		    perl -pi -e "s/^(dependency_libs)=.*/\1=''/" "$lafile" || true
 		fi
 	    done

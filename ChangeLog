@@ -1,3 +1,8 @@
+2010-04-10  Daniel Macks  <dmacks@netspace.org>
+
+	* VERSION: releasing 0.3
+	* postinst.in: remove useless runtime status msgs
+
 2010-01-11  Daniel Macks  <dmacks@netspace.org>
 
 	* VERSION: post-release bump
