@@ -22,6 +22,15 @@ if [ -n "$1" ]; then
     fi
 fi
 
+# Solve issue in which certain files within app bundles can't have backup 
+# links made on Yosemite and later.  The output text is:
+#
+#  unable to make backup link of `@PREFIX@/Applications/FOO.app/Contents/{PkgInfo|empty.lproj' 
+#  before installing new version: Operation not permitted
+#
+# and the install operation fails.
+#
+
 # look for PkgInfo and other problematic app bundle files and remove them
 for file in `dpkg -L $FINK_PACKAGE_NAME` ; do
 	if [[ "$file" =~ "PkgInfo" ]] || [[ "$file" =~ "empty.lproj" ]] 
