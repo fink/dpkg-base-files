@@ -30,6 +30,13 @@ The dpkg-base-files package contains files that dpkg uses:
 
    * During package installation, clear the dependency_libs entry in
      all .la files being installed
+     
+   * On package upgrade, remove files known to be problematic on Yosemite (and later)
+     in advance to avoid errors of the form:
+     
+ unable to make backup link of `.%p/Applications/FOO.app/Contents/PkgInfo' 
+ before installing new version: Operation not permitted
+
 <<
 DescPackaging: <<
 	Dependency on "dpkg that runs these scripts" needed so that
