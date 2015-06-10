@@ -25,7 +25,7 @@ fi
 # Solve issue in which certain files within app bundles can't have backup 
 # links made on Yosemite and later.  The output text is:
 #
-#  unable to make backup link of `@PREFIX@/Applications/FOO.app/Contents/{PkgInfo|empty.lproj' 
+#  unable to make backup link of `@PREFIX@/Applications/FOO.app/Contents/{PkgInfo|empty.lproj}' 
 #  before installing new version: Operation not permitted
 #
 # and the install operation fails.
