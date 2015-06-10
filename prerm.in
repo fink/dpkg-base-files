@@ -21,3 +21,10 @@ if [ -n "$1" ]; then
 	echo "uh oh...$0 told to run $1 but it doesn't exist!"
     fi
 fi
+
+# look for PkgInfo and other problematic app bundle files and remove them
+for file in `dpkg -L $FINK_PACKAGE_NAME` ; do
+	if [[ "$file" =~ "PkgInfo" ]] || [[ "$file" =~ "empty.lproj" ]] 
+		then rm $file 
+	fi
+done
